@@ -16,6 +16,12 @@ var connectMongo = require('connect-mongo')(session);
 var config = require('./config/config');
 var moment = require('moment');
 
+const db = mongoose.connection;
+// When successfully connected
+db.on("connected", function() {
+  console.log("Mongo DB connection open for DB");
+});
+
 var index = require('./routes/index');
 var admin = require('./routes/admin');
 

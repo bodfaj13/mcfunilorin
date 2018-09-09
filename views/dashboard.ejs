@@ -8,6 +8,7 @@
     <meta name="author" content="<%= author %>">
 	  <title><%= title %></title>
     <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/dataTables.bootstrap4.css">
     <link rel="stylesheet" href="../css/font-awesome.css">
     <link href="../css/dashboard.css" rel="stylesheet">
   </head> 
@@ -17,7 +18,7 @@
       
         <a class="navbar-brand" href="/">
         <img src="../img/redeem.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        RCCG PACESETTERS
+        <%= title %>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -85,43 +86,61 @@
 
 
 
-          <h2>New Members Details</h2>
-          <div class="table-responsive">
-<%if(dataPool){%>
-  <table class="table table-striped myTable1">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>DOB</th>
-        <th>Phone Number</th>
-        <th>Sex</th>
-        <th>Email Address</th>
-        <th>Home Address</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Date Time</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%for(member in dataPool){%>
-          <tr>
-            <td><%= dataPool[member].firstName %> <%= dataPool[member].middleName %> <%= dataPool[member].lastName %></td>
-            <td><%= dataPool[member].dob %></td>
-            <td><%= dataPool[member].phoneNumber %></td>
-            <td><%= dataPool[member].sex %></td>
-            <td><%= dataPool[member].emailAddress %></td>
-            <td><%= dataPool[member].homeAddress %></td>
-            <td><%= dataPool[member].city %></td>
-            <td><%= dataPool[member].state %></td>
-            <td><%= dataPool[member].time %></td>
-          </tr>
-      <%}%>
-    </tbody>
-  </table>
-<%}%>
-</div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-table"></i> New Members
+            </div>
 
-          
+            <div class="card-body">
+              <div class="table-responsive">
+                <%if(dataPool){%>
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>DOB</th>
+                        <th>Phone Number</th>
+                        <th>Sex</th>
+                        <th>Email Address</th>
+                        <th>Home Address</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Date</th>
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th>Name</th>
+                        <th>DOB</th>
+                        <th>Phone Number</th>
+                        <th>Sex</th>
+                        <th>Email Address</th>
+                        <th>Home Address</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Date</th>
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                      <%for(member in dataPool){%>
+                          <tr>
+                            <td><%= dataPool[member].firstName %> <%= dataPool[member].middleName %> <%= dataPool[member].lastName %></td>
+                            <td><%= dataPool[member].dob %></td>
+                            <td><%= dataPool[member].phoneNumber %></td>
+                            <td><%= dataPool[member].sex %></td>
+                            <td><%= dataPool[member].emailAddress %></td>
+                            <td><%= dataPool[member].homeAddress %></td>
+                            <td><%= dataPool[member].city %></td>
+                            <td><%= dataPool[member].state %></td>
+                            <td><%= dataPool[member].time %></td>
+                          </tr>
+                      <%}%>
+                    </tbody>
+                  </table>
+                <%}%>
+              </div>
+            </div>
+          </div>
         </main>
       </div>
     </div>
@@ -129,6 +148,7 @@
 
     <!-- modals -->
 
+    
 
 <div class="modal fade " id="logout" tabindex="-1" role="dialog" aria-labelledby="logout" aria-hidden="true">
   <div class="modal-dialog modal-md" role="document">
@@ -152,6 +172,9 @@
     <script src="../js/jquery-2.1.4.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.js"></script>
+    <script src="../js/jquery.dataTables.js"></script>
+    <script src="../js/dataTables.bootstrap4.js"></script>
+    <script src="../js/sb-admin-datatables.js"></script>
     <script src="../js/scripts.js"></script>
   </body>
 </html>

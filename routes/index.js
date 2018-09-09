@@ -57,7 +57,7 @@ router.post('/regmember', function(req, res, next){
       res.redirect('/');
     }else{
 
-      Member.checkMemberEmail(emailAddress, function(err, user){
+      Member.findOne(emailAddress, function(err, user){
         if(err)throw err;
         if(!user){
           var newMember  = new Member ({
@@ -78,7 +78,7 @@ router.post('/regmember', function(req, res, next){
             level: level
           });
 
-          Member.createMember(newMember, function(err, user){
+          Member.save(newMember, function(err, user){
             if(err) throw err;
             console.log(user);
             req.flash('regmemberSuc', 'Thanks for details!');

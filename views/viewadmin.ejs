@@ -9,6 +9,7 @@
 	  <title><%= title %></title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/font-awesome.css">
+    <link rel="stylesheet" href="../css/dataTables.bootstrap4.css">
     <link href="../css/dashboard.css" rel="stylesheet">
   </head> 
 
@@ -86,31 +87,46 @@
 
 
 
-<h2>Admin Details</h2>
-           <div class="table-responsive">
-<%if(dataPool){%>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Username</th>
-      <th>Email Address</th>
-      <th>Global Admin</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%for(admin in dataPool){%>
-        <tr>
-          <td><%= dataPool[admin].name %></td>
-          <td><%= dataPool[admin].username %></td>
-          <td><%= dataPool[admin].email %></td>
-          <td><%= dataPool[admin].globalAdmin %></td>
-        </tr>
-    <%}%>
-  </tbody>
-</table>
-<%}%>
-</div>
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-table"></i> Admin Details
+            </div>
+
+            <div class="card-body">
+              <div class="table-responsive">
+                <%if(dataPool){%>
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email Address</th>
+                        <th>Global Admin</th>
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email Address</th>
+                        <th>Global Admin</th>
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                      <%for(admin in dataPool){%>
+                          <tr>
+                            <td><%= dataPool[admin].name %></td>
+                            <td><%= dataPool[admin].username %></td>
+                            <td><%= dataPool[admin].email %></td>
+                            <td><%= dataPool[admin].globalAdmin %></td>
+                          </tr>
+                      <%}%>
+                    </tbody>
+                  </table>
+                <%}%>
+              </div>
+            </div>
+          </div>
         </main>
       </div>
     </div>
@@ -140,7 +156,9 @@
     <script src="../js/jquery-2.1.4.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.js"></script>
-    <script src="../js/jquery-tabledit.js"></script>
+    <script src="../js/jquery.dataTables.js"></script>
+    <script src="../js/dataTables.bootstrap4.js"></script>
+    <script src="../js/sb-admin-datatables.js"></script>
     <script src="../js/scripts.js"></script>
   </body>
 </html>
