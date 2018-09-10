@@ -11,9 +11,21 @@ router.get('/', function(req, res, next) {
     title: appdetails.Title,
     author: appdetails.Author,
     desc: appdetails.Description,
+    hideNav: false,
+    showNewMember: true
+  });
+});
+
+router.get('/newmember', function(req, res, next) {
+  res.render('newmember',{
+    title: appdetails.Title,
+    author: appdetails.Author,
+    desc: appdetails.Description,
     regmemberErr: req.flash('regmemberErr'),
     emailErr: req.flash('emailErr'),
-    regmemberSuc: req.flash('regmemberSuc')
+    regmemberSuc: req.flash('regmemberSuc'),
+    hideNav: true,
+    showNewMember: false
   });
 });
 
@@ -57,7 +69,7 @@ router.post('/regmember', function(req, res, next){
       res.redirect('/');
     }else{
 
-      Member.findOne(emailAddress, function(err, user){
+      Member.checkMemberEmail(emailAddress, function(err, user){
         if(err)throw err;
         if(!user){
           var newMember  = new Member ({
@@ -78,16 +90,16 @@ router.post('/regmember', function(req, res, next){
             level: level
           });
 
-          Member.save(newMember, function(err, user){
+          Member.createMember(newMember, function(err, user){
             if(err) throw err;
             console.log(user);
             req.flash('regmemberSuc', 'Thanks for details!');
-            res.redirect('/');
+            res.redirect('/newmember');
           });
           
           }else{
             req.flash('emailErr', 'Email already exists!');
-            res.redirect('/');
+            res.redirect('/newmember');
           }
         });
         

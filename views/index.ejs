@@ -18,154 +18,91 @@
 	<%include ./nav%>
 	<!-- //nav -->
 	<!-- content -->
-	<div class="jumbotron blue darken-4 black-text" id="jumbo-holder">
+	<div class="jumbotron bg-dark text-white" id="jumbo-holder">
   		<div class="container text-center wow slideInDown" data-wow-duration="2s">
 
-    		<h1 class="display-3">We Welcome You In The Name Of The Lord!</h1>
-    		<!-- <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>-->
+    		<h1 class="display-3">YOU <i><strong>MATTER</strong></i> TO GOD.</h1>
+    		<h1 class="display-3">YOU <i><strong>MATTER</strong></i> TO US.</h1>
 				<br>
-    		<a href="#reg-form"><button class="btn my-btn">Let us know you more <i class="fa fa-arrow-down" aria-hidden="true"></i></button></a>
-    		
+    		<!--<a href="#reg-form"><button class="btn my-btn">Let us know you more <i class="fa fa-arrow-down" aria-hidden="true"></i></button></a>-->
     		
   		</div>
 	</div>
-	<!-- reg form -->
-	<div class="container wow slideInDown" id="reg-form" data-wow-duration="3s">
-		<div>
-			<% if(regmemberErr){%>
-				<% for(err in regmemberErr){%>
-					<div class="alert alert-danger alert-dismissable fade show">
-						<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>
-						<%= regmemberErr[err].msg %>
-					</strong>
-					</div>
-				<%}%>
-			<%}%>
-		</div>
-		<div>
-			<% if(emailErr.length == 1){%>
-				
-					<div class="alert alert-danger alert-dismissable fade show">
-						<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>
-						<%= emailErr %>
-					</strong>
-					</div>
 
-			<%}%>
-		</div>
-		<div>
-			<% if(regmemberSuc.length == 1){%>
-				
-					<div class="alert alert-success alert-dismissable fade show">
-						<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>
-						<%= regmemberSuc %>
-					</strong>
-					</div>
+	<!-sections -->
+		<section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 col-xs-12 order-2">
+            <div class="card">
+              <img class="card-img-top" src="img/smallball.jpg" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Some text goes here</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 order-1 col-xs-12">
+            <div class="p-5">
+              <h2 class="display-4">We welcome you...</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-			<%}%>
-		</div>
-		<form action="/regmember" method="POST">
-  			<div class="form-row">
-   				 <div class="form-group col-xs-12 col-md-4">
-      				<label for="firstName" class="col-form-label">First Name</label>
-      				<input type="text" class="form-control" id="firstName" placeholder="" name="firstName" required>
-    			</div>
-    			<div class="form-group col-xs-12 col-md-4">
-      				<label for="middleName" class="col-form-label">Middle Name</label>
-      				<input type="text" class="form-control" id="middleName" placeholder="" name="middleName">
-    			</div>
-    			<div class="form-group col-xs-12 col-md-4">
-      				<label for="lastName" class="col-form-label">Last Name</label>
-      				<input type="text" class="form-control" id="lastName" placeholder="" name="lastName" required>
-   				</div>
-  			</div>
-  			<div class="form-row">
-   				 <div class="form-group col-xs-12 col-md-4">
-      				<label for="dob" class="col-form-label">Date Of Birth</label>
-      				<input type="text" class="form-control" id="dob" placeholder="" name="dob" 	data-toggle="datepicker" required>
-    			</div>	
-    			<div class="form-group col-xs-12 col-md-4">
-      				<label for="phoneNumber" class="col-form-label">Phone Number </label>
-      				<input type="number" class="form-control" id="phoneNumber" placeholder="" name="phoneNumber" required>
-    			</div>	
-    			<div class="form-group col-xs-12 col-md-4">
-      				<label for="sex" class="col-form-label">Sex </label>
-      				 <select class="form-control" id="sex" name="sex" required>
-      				 	<option>Choose...</option>
-      					<option>Male</option>
-      					<option>Female</option>
-    				</select>
-    			</div>	
-  			</div>
-				  <div class="form-row">
-   				 <div class="form-group col-xs-12 col-md-2">
-      				<label for="schoolPremise" class="col-form-label">School Premise </label>
-      				 <select class="form-control" id="schoolPremise" name="schoolPremise" required>
-      				 	<option>Choose...</option>
-      					<option>UITH</option>
-      					<option selected>Main Campus</option>
-								<option>Remedial</option>
-    				</select>
-    			</div>	
-    			<div class="form-group col-xs-12 col-md-4">
-      				<label for="fac" class="col-form-label">Faculty </label>
-      				<input type="text" class="form-control" id="fac" placeholder="" name="fac" required>
-    			</div>	
-    			<div class="form-group col-xs-12 col-md-4">
-      				<label for="dept" class="col-form-label">Department </label>
-      				<input type="text" class="form-control" id="dept" placeholder="" name="dept" required>
-    			</div>
-					<div class="form-group col-xs-12 col-md-2">
-      				<label for="level" class="col-form-label">Level </label>
-      				 <select class="form-control" id="schoolPremise" name="level" required>
-      				 	<option>Choose...</option>
-      					<option>100 Level</option>
-      					<option>200 Level</option>
-								<option>300 Level</option>
-								<option>400 Level</option>
-								<option>500 Level</option>
-    				</select>
-    			</div>
-  			</div>
-  			<div class="form-row">
-   				 <div class="form-group col-xs-12 col-md-4">
-      				<label for="emailAddress" class="col-form-label">Email Address</label>
-      				<input type="email" class="form-control" id="emailAddress" placeholder="example jon@gmail.com" name="emailAddress" required>
-    			</div>	
-    			<div class="form-group col-xs-12 col-md-8">
-      				<label for="homeAddress" class="col-form-label"> Address </label>
-      				<input type="text" class="form-control" id="homeAddress" placeholder="" name="homeAddress" required>
-    			</div>	
-  			</div>
-  			<div class="form-row">
-   				<div class="form-group col-xs-12 col-md-6">
-      				<label for="city" class="col-form-label">City</label>
-      				<input type="text" class="form-control" id="city" name="city" required>
-    			</div>
-    			<div class="form-group col-xs-12 col-md-6">
-      				<label for="state" class="col-form-label">State</label>
-      				<input type="text" class="form-control" id="state" name="state" required>
-    			</div>
-  			</div>
+    <section id="about">
+      <div class="container">
+          <div class="col-md-12 text-center">
+            <div class="p-5">
+              <h2 class="display-4">About us...</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  			<button type="reset" class="btn grey my-btn">Reset</button>
-  			<button type="submit" class="btn green my-btn">Submit</button>
-  			<br>
-		</form>
-	</div>
-	<!-- //reg from -->
+    <sectionid id="contact">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 col-xs-12">
+            <div class="card">
+              <img class="card-img-top" src="img/smallball.jpg" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Map goes here</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <div class="p-5">
+              <h2 class="display-4">Contact us...</h2>
+              <p>If there is an immediate need, please consider calling our office directly to speak with the pastor on call at
+              <br>
+              <a href="tel:+234 903 484 7677" style="text-decoration: none; color: black; font-weight: bolder">+234 903 484 7677</a>
+              <br>
+              <i class="fa fa-map"></i> <a href="mailto:info@mcf-unilorin.com" style="text-decoration: none; color: black; font-weight: bolder">info@mcf-unilorin.com</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+	<!--sections-->
+
 	<!-- content -->
 	<!-- footer -->
 	<br>
-	<footer>
-		<div class="page-footer">
-			<p class="footer-copyright text-center">
-				© 2018. All rights reserved | Design by MCF IT Dept
-			</p>
+	<!-- Footer -->
+
+	<footer class="py-5 bg-dark">
+		<div class="container">
+      <p class="m-0 text-center text-white">      
+      © 2018 MCF Unilorin. All Rights Reserved
+      </p>
 		</div>
+		<!-- /.container -->
 	</footer>
 
 	<!-- //footer -->
@@ -175,6 +112,7 @@
 	<script src="js/datepicker.js"></script>
 	<script src="js/particles.js"></script>
 	<script src="js/app.js"></script>
+  <script src="js/easing.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/wow.min.js"></script>
 </body>

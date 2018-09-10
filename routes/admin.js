@@ -14,7 +14,9 @@ router.get('/', function(req, res, next) {
     author: appdetails.Author,
     desc: appdetails.Description,
     loginErrU: req.flash('loginErrU'),
-    ensurelogin: req.flash('ensurelogin')
+    ensurelogin: req.flash('ensurelogin'),
+    hideNav: true,
+    showNewMember: true
   });
 });
 
@@ -166,7 +168,7 @@ router.post('/addadmin', function(req, res, next){
       Admin.checkAdminEmail(email, function(err, user){
         if(err)throw err;
         if(!user){
-          Admin.checkAdminUsername(username, function(err, user){
+          Admin.checkAdminUsername({email: email}, function(err, user){
             if(!user){
               var newAdmin  = new Admin ({
                 name: name,

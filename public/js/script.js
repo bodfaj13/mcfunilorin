@@ -26,4 +26,12 @@ $(document).ready(function () {
 
 	$('[data-toggle="tooltip"]').tooltip(); 
 	$('[data-toggle="datepicker"]').datepicker();
+
+	$(".page-scroll a").bind('click',function(){
+		var $anchor = $(this);
+		$("html, body").stop().animate({
+			scrollTop: $($anchor.attr("href")).offset().top
+		},1500, 'easeInOutExpo');
+		event.preventDefault();
+	})
 });

@@ -56,7 +56,7 @@ var memberSchema = mongoose.Schema({
         type: String
     },
     level: {
-        type: Number
+        type: String
     }
 });
 
