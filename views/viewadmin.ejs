@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-light  navbar-dark fixed-top bg-dark my-nav fixed-top">
       
         <a class="navbar-brand" href="/">
-        <img src="../img/redeem.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="../img/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
         <%= title %>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,56 +29,37 @@
               <li class="nav-item active">
                 <a class="nav-link" href="/admin/dashboard" data-toggle="tooltip" title="Home"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
               </li>
-               
-              <li class="nav-item hide-on-med-and-up">
-              <a class="nav-link" href="/admin/dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i> Overview </a>
+          </ul>
+          <ul class="navbar-nav navbar-right">
+            <li class="nav-item ">
+              <a class="nav-link " href="/admin/dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i> Overview </a>
               </li>
               <% if(user.globalAdmin == true){%>
-              <li class="nav-item hide-on-med-and-up">
+              <li class="nav-item ">
               <a class="nav-link" href="/admin/addadmin" ><i class="fa fa-user-plus" aria-hidden="true"></i>  Add Admins</a>
             </li>
 
-            <li class="nav-item hide-on-med-and-up">
-              <a class="nav-link active" href="/admin/viewadmin"><i class="fa fa-user" aria-hidden="true"></i>  View Admins</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="/admin/viewadmin"><i class="fa fa-user" aria-hidden="true"></i>  View Admins</a>
             </li>
             <%}%>
-            <li class="nav-item hide-on-med-and-up">
+            <li class="nav-item ">
               <a class="nav-link" href="/admin/settings"><i class="fa fa-cog" aria-hidden="true"></i>  Settings</a>
             </li>
-            <li class="nav-item hide-on-med-and-up">
+            <li class="nav-item ">
               <a class="nav-link" href="#" data-toggle="modal" data-target="#logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
             </li>
           </ul>
-
+          
         </div>
       
   </nav>
 
     <div class="container-fluid">
       <div class="row">
-        <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
-          <ul class="nav nav-pills flex-column">
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i> Overview </a>
-            </li>
-            <% if(user.globalAdmin == true){%>
-              <li class="nav-item">
-              <a class="nav-link" href="/admin/addadmin"><i class="fa fa-user-plus" aria-hidden="true"></i>  Add Admins</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/admin/viewadmin"><i class="fa fa-user" aria-hidden="true"></i>  View Admins</a>
-            </li>
-            <%}%>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/settings"><i class="fa fa-cog"></i>  Settings</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-toggle="modal" data-target="#logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
-            </li>
-          </ul>
-        </nav>
 
-        <main class="col-sm-9 ml-sm-auto col-md-10 pt-3 grey" role="main">
+
+        <main class="col-sm-12 ml-sm-auto col-md-12 pt-3 grey" role="main">
       
          
           <h3><%= user.name
